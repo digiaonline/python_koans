@@ -193,7 +193,7 @@ class Sensei(MockableTestResult):
         if self.failures:
             turn = self.pass_count % 37
 
-            zenness = "";
+            zenness = ""
             if turn == 0:
                 zenness = "Beautiful is better than ugly."
             elif turn == 1 or turn == 2:
@@ -240,7 +240,7 @@ class Sensei(MockableTestResult):
             else:
                 zenness = "Namespaces are one honking great idea -- " \
                           "let's do more of those!"
-            return "{0}{1}{2}{3}".format(Fore.CYAN, zenness, Fore.RESET, Style.NORMAL);
+            return "{0}{1}{2}{3}".format(Fore.CYAN, zenness, Fore.RESET, Style.NORMAL)
         else:
             return "{0}Nobody ever expects the Spanish Inquisition." \
                 .format(Fore.CYAN)
