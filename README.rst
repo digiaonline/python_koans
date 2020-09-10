@@ -37,15 +37,11 @@ a taste of Test Driven Development (TDD).
 Downloading Python Koans
 ------------------------
 
-Python Koans is available through git on GitHub:
+Python Koans is available on GitHub:
 
-    https://github.com/gregmalcolm/python_koans
+* https://github.com/gregmalcolm/python_koans
 
-It is also mirrored on Bitbucket for Mercurial users:
-
-    https://bitbucket.org/gregmalcolm/python_koans
-
-Either site will allow you to download the source as a zip/gz/bz2.
+You can clone with Git or download the source as a zip/gz/bz2.
 
 
 Installing Python Koans
@@ -64,7 +60,7 @@ likely give you problems.
 
 You can download Python from here:
 
-    https://www.python.org/downloads/
+* https://www.python.org/downloads/
 
 After installing Python make sure the folder containing the python executable
 is in the system path. In other words, you need to be able to run
@@ -74,7 +70,7 @@ be `python3` or for windows it will be `python.exe`.
 
 If you have problems, this may help:
 
-    https://www.python.org/about/gettingstarted/
+* https://www.python.org/about/gettingstarted/
 
 Windows users may also want to update the line in the batch file `run.bat` to
 set the python path::
@@ -182,12 +178,12 @@ Once it is set up, you just run:
 
     sniffer
 
-Just modify one of the koans files and you'll see that the tests are triggered automatically. Sniffer is controlled by `scent.py`.
+Just modify one of the koans files and you'll see that the tests are triggered automatically. Sniffer is controlled by ``scent.py``.
 
 Getting the Most From the Koans
 -------------------------------
 
-Quoting the Ruby Koans instructions::
+Quoting the Ruby Koans instructions:
 
 	"In test-driven development the mantra has always been, red, green,
 	refactor. Write a failing test and run it (red), make the test pass
@@ -236,4 +232,4 @@ Also thanks to everyone who has contributed to Python Koans! I got a great
 headstart by taking over a code base initiated by the combined Mikes of
 FPIP. So here's a little plug for their very cool Python podcast:
 
-  http://frompythonimportpodcast.com/
+* https://www.frompythonimportpodcast.com/
