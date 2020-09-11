@@ -48,7 +48,7 @@ Installing Python Koans
 -----------------------
 
 Aside from downloading or checking out the latest version of Python Koans, you
-need to install the Python 3.5 or newer interpreter.
+need to install the Python 3.6 or newer interpreter.
 
 You can download Python from here:
 

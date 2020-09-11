@@ -28,7 +28,7 @@ class SentinelObject:
         self.name = name
 
     def __repr__(self):
-        return '<SentinelObject "{!s}">'.format(self.name)
+        return f'<SentinelObject "{self.name!s}">'
 
 
 class Sentinel:
@@ -133,7 +133,7 @@ class Mock:
     def __getattr__(self, name):
         if self._methods is not None:
             if name not in self._methods:
-                raise AttributeError("Mock object has no attribute '{!s}'".format(name))
+                raise AttributeError(f"Mock object has no attribute '{name!s}'")
         elif _is_magic(name):
             raise AttributeError(name)
 
@@ -164,7 +164,7 @@ def _importer(target):
     thing = __import__(import_path)
 
     for comp in components:
-        import_path += ".{!s}".format(comp)
+        import_path += f".{comp!s}"
         thing = _dot_lookup(thing, comp, import_path)
     return thing
 
@@ -218,7 +218,7 @@ class _patch:
                 # for instances of classes with slots, they have no __dict__
                 original = getattr(target, name)
         elif not create and not hasattr(target, name):
-            raise AttributeError("{!s} does not have the attribute {!r}".format(target, name))
+            raise AttributeError(f"{target!s} does not have the attribute {name!r}")
         return original
 
 
@@ -257,7 +257,7 @@ def patch(target, new=DEFAULT, spec=None, create=False):
     try:
         target, attribute = target.rsplit('.', 1)
     except (TypeError, ValueError):
-        raise TypeError("Need a valid target to patch. You supplied: {!r}".format(target,))
+        raise TypeError(f"Need a valid target to patch. You supplied: {target!r}")
     target = _importer(target)
     return _patch(target, attribute, new, spec, create)
 

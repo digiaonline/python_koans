@@ -160,9 +160,9 @@ class Sensei(MockableTestResult):
 
         stack_text = stack_text.replace(sep, '\n').strip('\n')
         stack_text = re.sub(r'(about_\w+.py)',
-                r"{}\1{}".format(Fore.BLUE, Fore.YELLOW), stack_text)
+                fr"{Fore.BLUE}\1{Fore.YELLOW}", stack_text)
         stack_text = re.sub(r'(line \d+)',
-                r"{}\1{}".format(Fore.BLUE, Fore.YELLOW), stack_text)
+                fr"{Fore.BLUE}\1{Fore.YELLOW}", stack_text)
         return stack_text
 
     def report_progress(self):
@@ -239,7 +239,7 @@ class Sensei(MockableTestResult):
             else:
                 zenness = "Namespaces are one honking great idea -- " \
                           "let's do more of those!"
-            return "{}{}{}{}".format(Fore.CYAN, zenness, Fore.RESET, Style.NORMAL)
+            return f"{Fore.CYAN}{zenness}{Fore.RESET}{Style.NORMAL}"
         else:
             return "{}Nobody ever expects the Spanish Inquisition." \
                 .format(Fore.CYAN)
@@ -260,7 +260,7 @@ class Sensei(MockableTestResult):
     def filter_all_lessons(self):
         cur_dir = os.path.split(os.path.realpath(__file__))[0]
         if not self.all_lessons:
-            self.all_lessons = glob.glob('{}/../koans/about*.py'.format(cur_dir))
+            self.all_lessons = glob.glob(f'{cur_dir}/../koans/about*.py')
             self.all_lessons = list(filter(lambda filename:
                                       "about_extra_credit" not in filename,
                                       self.all_lessons))
