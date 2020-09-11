@@ -32,9 +32,8 @@ def names_from_file(filename):
     Opens the given ``filename`` and yields the fully-qualified names
     of TestCases found inside (one per line).
     '''
-    with io.open(filename, 'rt', encoding='utf8') as names_file:
-        for name in filter_koan_names(names_file):
-            yield name
+    with open(filename, encoding='utf8') as names_file:
+        yield from filter_koan_names(names_file)
     return
 
 

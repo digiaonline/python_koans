@@ -131,6 +131,6 @@ class AboutIteration(Koan):
                 # Arg, this is ugly.
                 # We will figure out how to fix this later.
                 file.close()
-        except IOError:
+        except OSError:
             # should never happen
             self.fail()

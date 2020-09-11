@@ -16,7 +16,7 @@ class AboutWithStatements(Koan):
                 return len(file.readlines())
             finally:
                 file.close()
-        except IOError:
+        except OSError:
             # should never happen
             self.fail()
 
@@ -35,7 +35,7 @@ class AboutWithStatements(Koan):
                         return line
             finally:
                 file.close()
-        except IOError:
+        except OSError:
             # should never happen
             self.fail()
 
