@@ -23,15 +23,15 @@ __all__ = (
 
 __version__ = '0.6.0 modified by Greg Malcolm'
 
-class SentinelObject(object):
+class SentinelObject:
     def __init__(self, name):
         self.name = name
 
     def __repr__(self):
-        return '<SentinelObject "{0!s}">'.format(self.name)
+        return f'<SentinelObject "{self.name!s}">'
 
 
-class Sentinel(object):
+class Sentinel:
     def __init__(self):
         self._sentinels = {}
 
@@ -48,7 +48,7 @@ class OldStyleClass:
 ClassType = type(OldStyleClass)
 
 def _is_magic(name):
-    return '__{0!s}__'.format(name[2:-2]) == name
+    return '__{!s}__'.format(name[2:-2]) == name
 
 def _copy(value):
     if type(value) in (dict, list, tuple, set):
@@ -56,7 +56,7 @@ def _copy(value):
     return value
 
 
-class Mock(object):
+class Mock:
 
     def __init__(self, spec=None, side_effect=None, return_value=DEFAULT,
                  name=None, parent=None, wraps=None):
@@ -133,7 +133,7 @@ class Mock(object):
     def __getattr__(self, name):
         if self._methods is not None:
             if name not in self._methods:
-                raise AttributeError("Mock object has no attribute '{0!s}'".format(name))
+                raise AttributeError(f"Mock object has no attribute '{name!s}'")
         elif _is_magic(name):
             raise AttributeError(name)
 
@@ -147,7 +147,7 @@ class Mock(object):
 
 
     def assert_called_with(self, *args, **kwargs):
-        assert self.call_args == (args, kwargs), 'Expected: {0!s}\nCalled with: {1!s}'.format((args, kwargs), self.call_args)
+        assert self.call_args == (args, kwargs), 'Expected: {!s}\nCalled with: {!s}'.format((args, kwargs), self.call_args)
 
 
 def _dot_lookup(thing, comp, import_path):
@@ -164,12 +164,12 @@ def _importer(target):
     thing = __import__(import_path)
 
     for comp in components:
-        import_path += ".{0!s}".format(comp)
+        import_path += f".{comp!s}"
         thing = _dot_lookup(thing, comp, import_path)
     return thing
 
 
-class _patch(object):
+class _patch:
     def __init__(self, target, attribute, new, spec, create):
         self.target = target
         self.attribute = attribute
@@ -218,7 +218,7 @@ class _patch(object):
                 # for instances of classes with slots, they have no __dict__
                 original = getattr(target, name)
         elif not create and not hasattr(target, name):
-            raise AttributeError("{0!s} does not have the attribute {1!r}".format(target, name))
+            raise AttributeError(f"{target!s} does not have the attribute {name!r}")
         return original
 
 
@@ -257,7 +257,7 @@ def patch(target, new=DEFAULT, spec=None, create=False):
     try:
         target, attribute = target.rsplit('.', 1)
     except (TypeError, ValueError):
-        raise TypeError("Need a valid target to patch. You supplied: {0!r}".format(target,))
+        raise TypeError(f"Need a valid target to patch. You supplied: {target!r}")
     target = _importer(target)
     return _patch(target, attribute, new, spec, create)
 

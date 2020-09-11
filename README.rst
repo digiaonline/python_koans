@@ -48,15 +48,7 @@ Installing Python Koans
 -----------------------
 
 Aside from downloading or checking out the latest version of Python Koans, you
-need to install the Python interpreter.
-
-At this time of writing, there are two versions of the Python Koans:
-
-* one for use with Python 2.7 (earlier versions are no longer supported)
-* one for Python 3.5+
-
-You should be able to work with newer Python versions, but older ones will
-likely give you problems.
+need to install the Python 3.6 or newer interpreter.
 
 You can download Python from here:
 
@@ -64,18 +56,17 @@ You can download Python from here:
 
 After installing Python make sure the folder containing the python executable
 is in the system path. In other words, you need to be able to run
-Python from a command console. With Python 2 it will be called `python`
-or `python.exe` depending on the operating system. For Python 3 it will either
-be `python3` or for windows it will be `python.exe`.
+Python from a command console. It will either be ``python3`` or for Windows it will be
+``python.exe``.
 
 If you have problems, this may help:
 
 * https://www.python.org/about/gettingstarted/
 
-Windows users may also want to update the line in the batch file `run.bat` to
+Windows users may also want to update the line in the batch file ``run.bat`` to
 set the python path::
 
-    SET PYTHON_PATH=C:\Python27
+    SET PYTHON_PATH=C:\Python38
 
 
 Getting Started
@@ -87,8 +78,8 @@ https://www.youtube.com/watch?v=e2WXgXEjbHY&list=PL5Up_u-XkWgNcunP_UrTJG_3EXgbK2
 
 Or if you prefer to read:
 
-From a \*nix terminal or windows command prompt go to the python
-koans\\python_VERSION folder and run:
+From a \*nix terminal or Windows command prompt go to the
+``python_koans\\python3`` folder and run:
 
 .. code-block:: sh
 
@@ -100,7 +91,7 @@ or:
 
     python3 contemplate_koans.py
 
-In my case I'm using Python 3 with windows, so I fire up my command
+In my case I'm using Python 3 with Windows, so I fire up my command
 shell (cmd.exe) and run this:
 
 .. image:: https://user-images.githubusercontent.com/2614930/28401747-f723ff00-6cd0-11e7-9b9a-a6993b753cf6.png
@@ -110,8 +101,8 @@ Apparently a test failed::
     AssertionError: False is not True
 
 It also tells me exactly where the problem is, it's an assert on line 12
-of .\\koans\\about_asserts.py. This one is easy, just change False to True to
-make the test pass.
+of ``.\\koans\\about_asserts.py``. This one is easy, just change ``False`` to ``True``
+to make the test pass.
 
 Sooner or later you will likely encounter tests where you are not sure what the
 expected value should be. For example:
@@ -178,7 +169,8 @@ Once it is set up, you just run:
 
     sniffer
 
-Just modify one of the koans files and you'll see that the tests are triggered automatically. Sniffer is controlled by ``scent.py``.
+Just modify one of the koans files and you'll see that the tests are triggered
+automatically. Sniffer is controlled by ``scent.py``.
 
 Getting the Most From the Koans
 -------------------------------
@@ -200,12 +192,6 @@ Content
 The Python Koans is a made up of about 2/3 Ruby Koans ported material and 1/3
 Python specific tests. The content ported from Ruby Koans includes all the
 assignment projects.
-
-Content for Python 3 is a little different to the Python 2 flavor due to big
-changes between the two different versions of the language.  For example, in
-the Python 2 variant the differences between old and new style classes are
-covered. This loses relevance in in the Python 3 version, but there are some
-extra tests covering new functionality.
 
 
 Finding More Koan Projects

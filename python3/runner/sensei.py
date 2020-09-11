@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 import unittest
 import re
@@ -31,7 +30,7 @@ class Sensei(MockableTestResult):
             self.prevTestClassName = helper.cls_name(test)
             if not self.failures:
                 self.stream.writeln()
-                self.stream.writeln("{0}{1}Thinking {2}".format(
+                self.stream.writeln("{}{}Thinking {}".format(
                     Fore.RESET, Style.NORMAL, helper.cls_name(test)))
                 if helper.cls_name(test) not in ['AboutAsserts', 'AboutExtraCredit']:
                     self.lesson_pass_count += 1
@@ -40,7 +39,7 @@ class Sensei(MockableTestResult):
         if self.passesCount():
             MockableTestResult.addSuccess(self, test)
             self.stream.writeln( \
-                "  {0}{1}{2} has expanded your awareness.{3}{4}" \
+                "  {}{}{} has expanded your awareness.{}{}" \
                 .format(Fore.GREEN, Style.BRIGHT, test._testMethodName, \
                 Fore.RESET, Style.NORMAL))
             self.pass_count += 1
@@ -60,7 +59,7 @@ class Sensei(MockableTestResult):
         table = list()
         for test, err in self.failures:
             if helper.cls_name(test) ==  testClassName:
-                m = re.search("(?<= line )\d+" ,err)
+                m = re.search(r"(?<= line )\d+" ,err)
                 if m:
                     tup = (int(m.group(0)), test, err)
                     table.append(tup)
@@ -93,29 +92,29 @@ class Sensei(MockableTestResult):
 
         if self.failures: sys.exit(-1)
         self.stream.writeln(
-            "\n{0}**************************************************" \
+            "\n{}**************************************************" \
             .format(Fore.RESET))
-        self.stream.writeln("\n{0}That was the last one, well done!" \
+        self.stream.writeln("\n{}That was the last one, well done!" \
             .format(Fore.MAGENTA))
         self.stream.writeln(
-            "\nIf you want more, take a look at about_extra_credit.py{0}{1}" \
+            "\nIf you want more, take a look at about_extra_credit.py{}{}" \
             .format(Fore.RESET, Style.NORMAL))
 
     def errorReport(self):
         problem = self.firstFailure()
         if not problem: return
         test, err = problem
-        self.stream.writeln("  {0}{1}{2} has damaged your "
+        self.stream.writeln("  {}{}{} has damaged your "
           "karma.".format(Fore.RED, Style.BRIGHT, test._testMethodName))
 
-        self.stream.writeln("\n{0}{1}You have not yet reached enlightenment ..." \
+        self.stream.writeln("\n{}{}You have not yet reached enlightenment ..." \
             .format(Fore.RESET, Style.NORMAL))
-        self.stream.writeln("{0}{1}{2}".format(Fore.RED, \
+        self.stream.writeln("{}{}{}".format(Fore.RED, \
             Style.BRIGHT, self.scrapeAssertionError(err)))
         self.stream.writeln("")
-        self.stream.writeln("{0}{1}Please meditate on the following code:" \
+        self.stream.writeln("{}{}Please meditate on the following code:" \
             .format(Fore.RESET, Style.NORMAL))
-        self.stream.writeln("{0}{1}{2}{3}{4}".format(Fore.YELLOW, Style.BRIGHT, \
+        self.stream.writeln("{}{}{}{}{}".format(Fore.YELLOW, Style.BRIGHT, \
             self.scrapeInterestingStackDump(err), Fore.RESET, Style.NORMAL))
 
     def scrapeAssertionError(self, err):
@@ -146,7 +145,7 @@ class Sensei(MockableTestResult):
             if m and m.group(0):
                 stack_text += '\n' + line
 
-            m = re.search("^    \w(\w)+.*$",line)
+            m = re.search(r"^    \w(\w)+.*$",line)
             if m and m.group(0):
                 stack_text += sep + line
 
@@ -161,9 +160,9 @@ class Sensei(MockableTestResult):
 
         stack_text = stack_text.replace(sep, '\n').strip('\n')
         stack_text = re.sub(r'(about_\w+.py)',
-                r"{0}\1{1}".format(Fore.BLUE, Fore.YELLOW), stack_text)
+                fr"{Fore.BLUE}\1{Fore.YELLOW}", stack_text)
         stack_text = re.sub(r'(line \d+)',
-                r"{0}\1{1}".format(Fore.BLUE, Fore.YELLOW), stack_text)
+                fr"{Fore.BLUE}\1{Fore.YELLOW}", stack_text)
         return stack_text
 
     def report_progress(self):
@@ -178,7 +177,7 @@ class Sensei(MockableTestResult):
         koans_remaining = self.total_koans() - self.pass_count
         lessons_remaining = self.total_lessons() - self.lesson_pass_count
 
-        return "You are now {0} koans and {1} lessons away from " \
+        return "You are now {} koans and {} lessons away from " \
             "reaching enlightenment.".format(
                 koans_remaining,
                 lessons_remaining)
@@ -193,7 +192,7 @@ class Sensei(MockableTestResult):
         if self.failures:
             turn = self.pass_count % 37
 
-            zenness = "";
+            zenness = ""
             if turn == 0:
                 zenness = "Beautiful is better than ugly."
             elif turn == 1 or turn == 2:
@@ -240,9 +239,9 @@ class Sensei(MockableTestResult):
             else:
                 zenness = "Namespaces are one honking great idea -- " \
                           "let's do more of those!"
-            return "{0}{1}{2}{3}".format(Fore.CYAN, zenness, Fore.RESET, Style.NORMAL);
+            return f"{Fore.CYAN}{zenness}{Fore.RESET}{Style.NORMAL}"
         else:
-            return "{0}Nobody ever expects the Spanish Inquisition." \
+            return "{}Nobody ever expects the Spanish Inquisition." \
                 .format(Fore.CYAN)
 
         # Hopefully this will never ever happen!
@@ -261,7 +260,7 @@ class Sensei(MockableTestResult):
     def filter_all_lessons(self):
         cur_dir = os.path.split(os.path.realpath(__file__))[0]
         if not self.all_lessons:
-            self.all_lessons = glob.glob('{0}/../koans/about*.py'.format(cur_dir))
+            self.all_lessons = glob.glob(f'{cur_dir}/../koans/about*.py')
             self.all_lessons = list(filter(lambda filename:
                                       "about_extra_credit" not in filename,
                                       self.all_lessons))

@@ -3,7 +3,7 @@ from . import win32
 
 
 # from wincon.h
-class WinColor(object):
+class WinColor:
     BLACK   = 0
     BLUE    = 1
     GREEN   = 2
@@ -14,12 +14,12 @@ class WinColor(object):
     GREY    = 7
 
 # from wincon.h
-class WinStyle(object):
+class WinStyle:
     NORMAL = 0x00 # dim text, dim background
     BRIGHT = 0x08 # bright text, dim background
 
 
-class WinTerm(object):
+class WinTerm:
 
     def __init__(self):
         self._default = win32.GetConsoleScreenBufferInfo(win32.STDOUT).wAttributes
@@ -115,6 +115,6 @@ class WinTerm(object):
         # fill the entire screen with blanks
         win32.FillConsoleOutputCharacter(handle, ' ', dw_con_size, coord_screen)
         # now set the buffer's attributes accordingly
-        win32.FillConsoleOutputAttribute(handle, self.get_attrs(), dw_con_size, coord_screen );
+        win32.FillConsoleOutputAttribute(handle, self.get_attrs(), dw_con_size, coord_screen )
         # put the cursor at (0, 0)
         win32.SetConsoleCursorPosition(handle, (coord_screen.X, coord_screen.Y))

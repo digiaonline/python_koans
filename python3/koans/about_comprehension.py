@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 from runner.koan import *
 
@@ -37,7 +36,7 @@ class AboutComprehension(Koan):
         list_of_meats = ['lite spam', 'ham spam', 'fried spam']
 
 
-        comprehension = [ '{0} and {1}'.format(egg, meat) for egg in list_of_eggs for meat in list_of_meats]
+        comprehension = [ '{} and {}'.format(egg, meat) for egg in list_of_eggs for meat in list_of_meats]
 
 
         self.assertEqual(__, comprehension[0])

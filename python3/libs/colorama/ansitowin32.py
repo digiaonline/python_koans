@@ -15,7 +15,7 @@ def is_a_tty(stream):
     return hasattr(stream, 'isatty') and stream.isatty()
 
 
-class StreamWrapper(object):
+class StreamWrapper:
     '''
     Wraps a stream (such as stdout), acting as a transparent proxy for all
     attribute access apart from method 'write()', which is delegated to our
@@ -34,13 +34,13 @@ class StreamWrapper(object):
         self.__convertor.write(text)
 
 
-class AnsiToWin32(object):
+class AnsiToWin32:
     '''
     Implements a 'write()' method which, on Windows, will strip ANSI character
     sequences from the text, and if outputting to a tty, will convert them into
     win32 function calls.
     '''
-    ANSI_RE = re.compile('\033\[((?:\d|;)*)([a-zA-Z])')
+    ANSI_RE = re.compile('\033\\[((?:\\d|;)*)([a-zA-Z])')
 
     def __init__(self, wrapped, convert=None, strip=None, autoreset=False):
         # The wrapped stream (normally sys.stdout or sys.stderr)
