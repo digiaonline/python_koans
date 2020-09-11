@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 #
 # Based on AboutArrayAssignments in the Ruby Koans

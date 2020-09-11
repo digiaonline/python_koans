@@ -15,7 +15,7 @@ def is_a_tty(stream):
     return hasattr(stream, 'isatty') and stream.isatty()
 
 
-class StreamWrapper(object):
+class StreamWrapper:
     '''
     Wraps a stream (such as stdout), acting as a transparent proxy for all
     attribute access apart from method 'write()', which is delegated to our

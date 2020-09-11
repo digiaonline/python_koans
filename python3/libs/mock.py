@@ -23,7 +23,7 @@ __all__ = (
 
 __version__ = '0.6.0 modified by Greg Malcolm'
 
-class SentinelObject(object):
+class SentinelObject:
     def __init__(self, name):
         self.name = name
 
@@ -31,7 +31,7 @@ class SentinelObject(object):
         return '<SentinelObject "{0!s}">'.format(self.name)
 
 
-class Sentinel(object):
+class Sentinel:
     def __init__(self):
         self._sentinels = {}
 
@@ -56,7 +56,7 @@ def _copy(value):
     return value
 
 
-class Mock(object):
+class Mock:
 
     def __init__(self, spec=None, side_effect=None, return_value=DEFAULT,
                  name=None, parent=None, wraps=None):
@@ -169,7 +169,7 @@ def _importer(target):
     return thing
 
 
-class _patch(object):
+class _patch:
     def __init__(self, target, attribute, new, spec, create):
         self.target = target
         self.attribute = attribute

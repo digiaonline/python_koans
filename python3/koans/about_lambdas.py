@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 #
 # Based slightly on the lambdas section of AboutBlocks in the Ruby Koans

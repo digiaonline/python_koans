@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 '''
 Functions to load the test cases ("koans") that make up the

@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 #
 # Partially based on AboutMessagePassing in the Ruby Koans
@@ -149,7 +148,7 @@ class AboutAttributeAccess(Koan):
 
     # ------------------------------------------------------------------
 
-    class PossessiveSetter(object):
+    class PossessiveSetter:
         def __setattr__(self, attr_name, value):
             new_attr_name =  attr_name
 
