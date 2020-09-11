@@ -15,9 +15,13 @@ language by making tests pass.
 
 Most tests are *fixed* by filling the missing parts of assert functions. Eg:
 
+.. code-block:: python
+
     self.assertEqual(__, 1+2)
 
 which can be fixed by replacing the __ part with the appropriate code:
+
+.. code-block:: python
 
     self.assertEqual(3, 1+2)
 
@@ -33,15 +37,11 @@ a taste of Test Driven Development (TDD).
 Downloading Python Koans
 ------------------------
 
-Python Koans is available through git on GitHub:
+Python Koans is available on GitHub:
 
-    https://github.com/gregmalcolm/python_koans
+* https://github.com/gregmalcolm/python_koans
 
-It is also mirrored on Bitbucket for Mercurial users:
-
-    https://bitbucket.org/gregmalcolm/python_koans
-
-Either site will allow you to download the source as a zip/gz/bz2.
+You can clone with Git or download the source as a zip/gz/bz2.
 
 
 Installing Python Koans
@@ -60,7 +60,7 @@ likely give you problems.
 
 You can download Python from here:
 
-    https://www.python.org/downloads/
+* https://www.python.org/downloads/
 
 After installing Python make sure the folder containing the python executable
 is in the system path. In other words, you need to be able to run
@@ -70,7 +70,7 @@ be `python3` or for windows it will be `python.exe`.
 
 If you have problems, this may help:
 
-    https://www.python.org/about/gettingstarted/
+* https://www.python.org/about/gettingstarted/
 
 Windows users may also want to update the line in the batch file `run.bat` to
 set the python path::
@@ -88,11 +88,15 @@ https://www.youtube.com/watch?v=e2WXgXEjbHY&list=PL5Up_u-XkWgNcunP_UrTJG_3EXgbK2
 Or if you prefer to read:
 
 From a \*nix terminal or windows command prompt go to the python
-koans\\python_VERSION folder and run::
+koans\\python_VERSION folder and run:
+
+.. code-block:: sh
 
     python contemplate_koans.py
 
-or::
+or:
+
+.. code-block:: sh
 
     python3 contemplate_koans.py
 
@@ -110,7 +114,9 @@ of .\\koans\\about_asserts.py. This one is easy, just change False to True to
 make the test pass.
 
 Sooner or later you will likely encounter tests where you are not sure what the
-expected value should be. For example::
+expected value should be. For example:
+
+.. code-block:: python
 
     class Dog:
         pass
@@ -130,41 +136,54 @@ Sniffer Support
 Sniffer allows you to run the tests continuously. If you modify any files files
 in the koans directory, it will rerun the tests.
 
-To set this up, you need to install sniffer::
+To set this up, you need to install sniffer:
 
-    $ pip install sniffer
+.. code-block:: sh
+
+    pip install sniffer
 
 You should also run one of these libraries depending on your system. This will
 automatically trigger sniffer when a file changes, otherwise sniffer will have
 to poll to see if the files have changed.
 
-On Linux::
+On Linux:
 
-    $ pip install pyinotify
+.. code-block:: sh
 
-On Windows::
+    pip install pyinotify
 
-    $ pip install pywin32
+On Windows:
+
+.. code-block:: sh
+
+    pip install pywin32
     
-(If that failed, try::
+(If that failed, try:
     
-    $ pip install pypiwin32
+.. code-block:: sh
+
+    pip install pypiwin32
+
 )
 
-On macOS::
+On macOS:
 
-    $ pip install MacFSEvents
+.. code-block:: sh
 
-Once it is set up, you just run::
+    pip install MacFSEvents
 
-    $ sniffer
+Once it is set up, you just run:
 
-Just modify one of the koans files and you'll see that the tests are triggered automatically. Sniffer is controlled by `scent.py`
+.. code-block:: sh
+
+    sniffer
+
+Just modify one of the koans files and you'll see that the tests are triggered automatically. Sniffer is controlled by ``scent.py``.
 
 Getting the Most From the Koans
 -------------------------------
 
-Quoting the Ruby Koans instructions::
+Quoting the Ruby Koans instructions:
 
 	"In test-driven development the mantra has always been, red, green,
 	refactor. Write a failing test and run it (red), make the test pass
@@ -196,7 +215,7 @@ There are number of other great Koan projects out there for various languages
 and frameworks. Most of them can be found in GitHub. Also there is a little
 koans activity on Bitbucket.
 
-* Github koan projects:
+* GitHub koan projects:
     https://github.com/search?q=koans&ref=cmdform
 
 * Bitbucket koan projects:
@@ -213,4 +232,4 @@ Also thanks to everyone who has contributed to Python Koans! I got a great
 headstart by taking over a code base initiated by the combined Mikes of
 FPIP. So here's a little plug for their very cool Python podcast:
 
-  http://frompythonimportpodcast.com/
+* https://www.frompythonimportpodcast.com/
