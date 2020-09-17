@@ -131,7 +131,7 @@ To set this up, you need to install sniffer:
 
 .. code-block:: sh
 
-    pip install sniffer
+    python3 -m pip install sniffer
 
 You should also run one of these libraries depending on your system. This will
 automatically trigger sniffer when a file changes, otherwise sniffer will have
@@ -141,19 +141,19 @@ On Linux:
 
 .. code-block:: sh
 
-    pip install pyinotify
+    python3 -m pip install pyinotify
 
 On Windows:
 
 .. code-block:: sh
 
-    pip install pywin32
+    python3 -m pip install pywin32
     
 (If that failed, try:
     
 .. code-block:: sh
 
-    pip install pypiwin32
+    python3 -m pip install pypiwin32
 
 )
 
@@ -161,7 +161,7 @@ On macOS:
 
 .. code-block:: sh
 
-    pip install MacFSEvents
+    python3 -m pip install MacFSEvents
 
 Once it is set up, you just run:
 
