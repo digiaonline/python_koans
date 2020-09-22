@@ -2,8 +2,8 @@
 Python Koans
 ============
 
-.. image:: https://travis-ci.org/hugovk/python_koans.svg?branch=master
-    :target: https://travis-ci.org/hugovk/python_koans
+.. image:: https://travis-ci.org/digiaonline/python_koans.svg?branch=master
+    :target: https://travis-ci.org/digiaonline/python_koans
 
 Python Koans is a port of Edgecase's "Ruby Koans" which can be found
 at http://rubykoans.com/.
