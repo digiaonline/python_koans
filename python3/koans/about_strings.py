@@ -40,23 +40,23 @@ class AboutStrings(Koan):
     def test_use_backslash_at_the_end_of_a_line_to_continue_onto_the_next_line(self):
         string = "It was the best of times,\n\
 It was the worst of times."
-        self.assertEqual(__, len(string))
+        self.assertEqual(52, len(string))
 
     def test_triple_quoted_strings_can_span_lines(self):
         string = """
 Howdy,
 world!
 """
-        self.assertEqual(__, len(string))
+        self.assertEqual(15, len(string))
 
     def test_triple_quoted_strings_need_less_escaping(self):
         a = "Hello \"world\"."
         b = """Hello "world"."""
-        self.assertEqual(__, (a == b))
+        self.assertEqual(True, (a == b))
 
     def test_escaping_quotes_at_the_end_of_triple_quoted_string(self):
         string = """Hello "world\""""
-        self.assertEqual(__, string)
+        self.assertEqual('Hello "world"', string)
 
     def test_plus_concatenates_strings(self):
         string = "Hello, " + "world"
