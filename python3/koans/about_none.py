@@ -40,11 +40,11 @@ class AboutNone(Koan):
 
         # What message was attached to the exception?
         # (HINT: replace __ with part of the error message.)
-        self.assertRegex(ex2.args[0], __)
+        self.assertRegex(ex2.args[0], 'NoneType')
 
     def test_none_is_distinct(self):
         """
         None is distinct from other things which are False.
         """
-        self.assertEqual(__, None is not 0)
-        self.assertEqual(__, None is not False)
+        self.assertEqual(True, None is not 0)
+        self.assertEqual(True, None is not False)
